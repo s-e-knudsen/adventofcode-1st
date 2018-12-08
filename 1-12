@@ -1,0 +1,45 @@
+import os
+"""This code is for the https://adventofcode.com the code is for the 1st of december and is in two section."""
+
+# opening file and read the lines 
+value = 0
+valueList = []
+valueList.append(0)
+os.chdir('/Users/sek/Downloads')
+file = open('file.txt')
+lines = file.readlines()
+i = 0
+#This is for star 2 of 1st december
+for i in range(1000):
+
+  #The for loop goes thru the lines and read the langt and take out the + or - to calculate the value.
+    for line in lines:
+        lengLine = len(lines)
+        newLine = line[1:lengLine]
+        intLine = int(newLine)
+    
+        if line[0] == '+':
+            #If the line is a +
+            value = value + intLine
+            if value in valueList:
+                print('The break value is:')
+                print(value)
+                break
+            else:
+                valueList.append(value)
+        else:
+            #if the line is a -
+            value = value - intLine
+            if value in valueList:
+                print('The break value is:')
+                print(value)
+                break
+            else:
+                valueList.append(value)
+
+print(valueList)
+print('-----')
+print('The total value is:')
+print(value)
+print('-----')
+file.close()
